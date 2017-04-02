@@ -9,16 +9,26 @@ routes.get('/', (req, res) => {
 
 routes.get("/scrape", (req, res)=>{
   var searchQ = "radiohead"
-  request("http://pitchfork.com/search/?query=radiohead", (err, response, html)=>{
-    var $ = cheerio.load(html);
+  
+  // request(
+//   "http://pitchfork.com/search/?query=radiohead",
+//   (err, response, html) => {
+//     var $ = cheerio.load(html);
 
-    var results = [];
-    $(".results-fragment").each((i, element)=>{
-      results.title = $(this).children(".title").text();
-    })
+//     $("#result-news .result-item").each((i, element) => {
+//       if (i < 5) {
+//         var itemTitles = $(element).find(".title").find("a").text();
+//         var itemLink = $(element).find(".title").find("a").attr("href");
 
-    console.log(results)
-  })
+//         pitchforkItems.push({
+//           title: itemTitles,
+//           link: itemLink
+//         });
+//       }
+//     });
+//     console.log(pitchforkItems);
+//   }
+// );
   
 })
 
