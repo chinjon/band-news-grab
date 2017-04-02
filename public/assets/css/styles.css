@@ -1,0 +1,31 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0.8rem;
+}
+
+#page-header-head h1{
+    /*font-size: 6.3rem;*/
+    font-size: 10.5vw;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 3px 3px 17px #000;
+}
+
+#page-header-head h3{
+    font-size: 3.0vw;
+    font-weight: 400;
+    color: #fff;
+    text-shadow: 4px 4px 17px #000;
+}
+
+#page-nav a{
+    color: #fff;
+}
+
+.navFont {
+    color: #fff;
+}
+
+.newFont {
+    font-family: 'PT Sans', sans-serif;
+}
