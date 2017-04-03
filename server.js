@@ -18,7 +18,16 @@ app.use(express.static('./public'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-
+// var hbs = exphbs.create({
+//     helpers:{
+//         pitchfork: (newsItems)=>{
+//             if(newsItems.website === "pitchfork"){
+//                 console.log(data)
+//                 return data
+//             }
+//         }
+//     }
+// })
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

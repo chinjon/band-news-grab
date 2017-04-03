@@ -42,19 +42,24 @@ var stereogumItems = [];
 //   console.log(cosItems);
 // });
 
-request("http://www.stereogum.com/?s=radiohead", (err, response, html)=>{
+request("http://www.stereogum.com/?s=radiohead", (err, response, html) => {
+  if (!err && response.statusCode == 200) {
     var $ = cheerio.load(html);
 
-    $(".feed-split-image .post").each((i, element)=>{
-        if(i<5){
-            var itemTitle = $(element).find(".preview-holder").find("h2").text();
-            var itemLink = $(element).find(".preview-holder").find("a").attr("href");
+    $(".feed-split-image .post").each((i, element) => {
+      if (i < 5) {
+        var itemTitle = $(element).find(".preview-holder").find("h2").text();
+        var itemLink = $(element)
+          .find(".preview-holder")
+          .find("a")
+          .attr("href");
 
-            stereogumItems.push({
-                title: itemTitle,
-                link: itemLink
-            })
-        }
+        stereogumItems.push({
+          title: itemTitle,
+          link: itemLink
+        });
+      }
     });
     console.log(stereogumItems);
+  }
 });
