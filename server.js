@@ -2,7 +2,8 @@ const express = require('express'),
 request = require('request'),
 bodyParser = require('body-parser'),
 cheerio = require('cheerio'),
-exphbs = require('express-handlebars');
+exphbs = require('express-handlebars'),
+mongoose = require('mongoose');
 
 const route = require('./routes');
 
@@ -25,13 +26,13 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 
-// mongoose.connect("mongodb://localhost/news-scrape");
-// var db = mongoose.connection;
+mongoose.connect("mongodb://localhost/news-scrape");
+var db = mongoose.connection;
 
-// // logs any mongoose errors
-// db.on("error", (err)=>{console.log("Mongoose Error:", err);});
+// logs any mongoose errors
+db.on("error", (err)=>{console.log("Mongoose Error:", err);});
 
-// db.once("open", ()=>{ console.log("Mongoose connection successful")});
+db.once("open", ()=>{ console.log("Mongoose connection successful")});
 
 
 app.use('/', route);
