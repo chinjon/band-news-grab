@@ -8,11 +8,14 @@ routes.get('/', (req, res) => {
 });
 
 
-routes.get("/scrape", (req, res)=>{
+routes.post("/scrape", (req, res)=>{
   
+  var searchTerm = req.body.term;
+  // console.log(searchTerm);
+
   
   request(
-  "http://pitchfork.com/search/?query=radiohead",
+  `http://pitchfork.com/search/?query=${searchTerm}`,
   (err, response, html) => {
     var $ = cheerio.load(html);
 
@@ -24,12 +27,13 @@ routes.get("/scrape", (req, res)=>{
         result.link = $(element).find(".title").find("a").attr("href");
         result.website = "pitchfork"
 
-        var entry = new Article(result);
+        console.log(result)
+        // var entry = new Article(result);
 
-        entry.save
+        // entry.save
       }
     });
-    console.log(pitchforkItems);
+    // console.log(pitchforkItems);
   }
 );
   
