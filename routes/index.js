@@ -27,16 +27,19 @@ routes.post("/scrape", (req, res)=>{
         result.link = $(element).find(".title").find("a").attr("href");
         result.website = "pitchfork"
 
-        console.log(result)
-        // var entry = new Article(result);
+        //console.log(result)
+        var entry = new Article(result);
 
-        // entry.save
+        entry.save((err,data)=>{
+          if(err){console.log(err)}
+          else {console.log(data)};
+        });
       }
+
     });
     // console.log(pitchforkItems);
-  }
-);
-  
+  });
+  res.send("Scrape Complete");
 })
 
 module.exports = routes;
