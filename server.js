@@ -34,8 +34,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
+var databaseUri = "mongodb://localhost/news-scrape";
 
-mongoose.connect("mongodb://localhost/news-scrape");
+if(process.env.MONGODB_URI) {
+    mongoose.connect(process.env.MONGODB_URI);
+} else {
+    mongoose.connect(databaseUri);
+}
+
+// mongoose.connect("mongodb://localhost/news-scrape");
 var db = mongoose.connection;
 
 // logs any mongoose errors
