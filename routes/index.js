@@ -10,7 +10,7 @@ routes.get("/", (req, res) => {
 routes.post("/scrape", (req, res) => {
   var searchTerm = req.body.term;
   // console.log(searchTerm);
-
+  searchTerm = encodeURIComponent(searchTerm);
   request(`http://pitchfork.com/search/?query=${searchTerm}`, (err, response, html) => {
 
     if (!err && response.statusCode == 200) {
@@ -46,7 +46,7 @@ routes.post("/scrape", (req, res) => {
 
   });
 
-  request("http://consequenceofsound.net/?s=radiohead", (err, response, html) => {
+  request("http://consequenceofsound.net/?s="+searchTerm, (err, response, html) => {
 
     if (!err && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -80,7 +80,7 @@ routes.post("/scrape", (req, res) => {
 
   });
 
-  request("http://www.stereogum.com/?s=radiohead", (err, response, html) => {
+  request("http://www.stereogum.com/?s="+searchTerm, (err, response, html) => {
 
     if (!err && response.statusCode == 200) {
       var $ = cheerio.load(html);
@@ -116,5 +116,13 @@ routes.post("/scrape", (req, res) => {
 
   res.send("Scrape Complete");
 });
+
+
+routes.get("/articles", (req, res)=>{
+  Article.find({}).limit(15).exec((err, data)=>{
+    if(err){console.log(err)}
+    else{res.json(data)}
+  })
+})
 
 module.exports = routes;
