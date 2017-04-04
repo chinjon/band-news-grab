@@ -9,14 +9,21 @@ function smallTextAnimate(){
 
 function grabArticles(){
     $.get('/articles', (data)=>{
+        var pitchforkSection = $('#pitchfork-items-body');
+        var cosSection = $('#cos-items-body');
+        var stereogumSection = $('#stereogum-items-body');
+
+        pitchforkSection.empty();
+        cosSection.empty();
+        stereogumSection.empty();
         console.log(data)
         for(let i = 0; i < data.length;i++){
             if(data[i].website === "pitchfork"){
-                $('#pitchfork-items-body').append("<p><a href='"+ data[i].link +"' target='_blank'>"+data[i].title+"</a></p>");
+                pitchforkSection.append("<p><a href='"+ data[i].link +"' target='_blank'>"+data[i].title+"</a></p>");
             } else if(data[i].website === "cos") {
-                $('#cos-items-body').append("<p><a href='"+ data[i].link +"' target='_blank'>"+data[i].title+"</a></p>");
+                cosSection.append("<p><a href='"+ data[i].link +"' target='_blank'>"+data[i].title+"</a></p>");
             } else if(data[i].website === "stereogum") {
-                $('#stereogum-items-body').append("<p><a href='"+ data[i].link +"' target='_blank'>"+data[i].title+"</a></p>");
+                stereogumSection.append("<p><a href='"+ data[i].link +"' target='_blank'>"+data[i].title+"</a></p>");
             }
         }
     })
