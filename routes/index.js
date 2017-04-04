@@ -15,20 +15,23 @@ routes.post("/scrape", (req, res) => {
 
     if (!err && response.statusCode == 200) {
       var $ = cheerio.load(html);
-
+      
       $("#result-news .result-item").each((i, element) => {
         var result = {};
 
         if (i < 5) {
+          var pkUrl = "http://pitchfork.com";
+
           result.title = $(element)
             .find(".title")
             .find("a")
             .text();
-          result.link = $(element)
+          result.link = pkUrl + $(element)
             .find(".title")
             .find("a")
             .attr("href");
           result.website = "pitchfork";
+
 
           //console.log(result)
           var entry = new Article(result);
@@ -63,7 +66,7 @@ routes.post("/scrape", (req, res) => {
             .find(".post-title")
             .find("a")
             .attr("href");
-          result.website = "consequence of sound";
+          result.website = "cos";
 
           var entry = new Article(result);
 
