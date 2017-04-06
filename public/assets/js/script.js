@@ -46,9 +46,12 @@ function submitQuery(){
 
 $("#refresh-nav").on("click", (e)=>{
     e.preventDefault();
-
     grabArticles();
 })
+
+// $("#show-all").on("click", (e)=>{
+
+// })
 
 // closes search modal when search modal is active with "uk-open"
 $(document).keypress((e)=>{

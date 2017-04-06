@@ -122,9 +122,15 @@ routes.post("/scrape", (req, res) => {
 
 
 routes.get("/articles", (req, res)=>{
-  Article.find({}).limit(15).exec((err, data)=>{
+  Article.find({}).sort({$natural:-1}).limit(15).exec((err, data)=>{
     if(err){console.log(err)}
     else{res.json(data)}
+  })
+})
+
+routes.get("/show-all", (req, res)=>{
+  Article.find({}, (err, data)=>{
+    err ? console.log(err) : res.send(data);
   })
 })
 
