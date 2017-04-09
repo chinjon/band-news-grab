@@ -13,9 +13,13 @@ body {
 }
 
 #page-header-head h3{
-    font-size: 1.9vw;
+    font-size: 4.4vw;
     color: #fff;
     text-shadow: 4px 4px 17px #000;
+}
+
+#search-now-btn {
+    font-size: 3vw;
 }
 
 #page-nav a{
@@ -32,7 +36,6 @@ body {
 .uk-navbar-right {
     margin-right: 2em;
 }
-
 
 .newFont {
     font-family: 'Vollkorn', serif;

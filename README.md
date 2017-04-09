@@ -1,5 +1,7 @@
 # Crate Digger
 
+<img src="band-scrape-gif" >
+
 ### Built With  
 - HTML5  
 - CSS3  

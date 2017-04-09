@@ -32,14 +32,16 @@ function grabArticles(){
 
 function submitQuery(){
     $(document).on("submit", "#search-form", (e)=>{
-    e.preventDefault();
+    // e.preventDefault();
     var searchQuery = {
         term: $("#search-query").val()
     }
     // console.log(searchQuery);
     $.post("scrape", searchQuery).done((data)=>{
         console.log(data);
+        grabArticles();
     })
+    
 });
 }
 
@@ -49,9 +51,6 @@ $("#refresh-nav").on("click", (e)=>{
     grabArticles();
 })
 
-// $("#show-all").on("click", (e)=>{
-
-// })
 
 // closes search modal when search modal is active with "uk-open"
 $(document).keypress((e)=>{
