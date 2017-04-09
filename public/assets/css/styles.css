@@ -1,6 +1,5 @@
 body {
     font-family: 'Vollkorn', serif;
-    padding: 0.8rem;
 }
 
 #page-header-head h1{
@@ -13,13 +12,13 @@ body {
 }
 
 #page-header-head h3{
-    font-size: 4.4vw;
+    font-size: 3.4vw;
     color: #fff;
     text-shadow: 4px 4px 17px #000;
 }
 
 #search-now-btn {
-    font-size: 3vw;
+    font-size: 100%;
 }
 
 #page-nav a{
@@ -39,4 +38,19 @@ body {
 
 .newFont {
     font-family: 'Vollkorn', serif;
+}
+
+#page-footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.7rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+#page-footer p {
+    margin: 10px 0 0 0;
+    vertical-align: middle;
+    padding-bottom: 1rem;
 }
