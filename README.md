@@ -1,6 +1,6 @@
 # Crate Digger
 
-<img src="band-scrape-gif" >
+<img src="band-scrape.gif" >
 
 ### Built With  
 - HTML5  
