@@ -40,6 +40,10 @@ body {
     font-family: 'Vollkorn', serif;
 }
 
+.article-cards {
+    margin: 2rem 0;
+}
+
 #page-footer {
   right: 0;
   bottom: 0;

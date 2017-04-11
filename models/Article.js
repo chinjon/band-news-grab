@@ -19,8 +19,16 @@ const ArticleSchema = new Schema({
         type: Date,
         default: Date.now,
         required: true
+    },
+    term: { 
+        type: String,
+        required: true
+    },
+    note: {
+        type: Schema.Types.ObjectId,
+        ref: "Note"
     }
-})
+});
 
 var Article = mongoose.model("Article", ArticleSchema);
 
