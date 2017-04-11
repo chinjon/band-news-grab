@@ -4,17 +4,33 @@ grabArticles();
 
 $('body').on("click", ".open-note", function(){
     var thisId = $(this).attr('data-id');
-
+    
     if(thisId) {
+        $("#save-note").attr('data-id', thisId);
         $.get(`/articles/${thisId}`).done(function(data){
             console.log(data);
+
+            if(data.note){
+                console.log(data.note.body)
+                $("#note-body-input").append(data.note.body)
+            } else {
+                console.log("no note")
+            }
         })
     }
 });
 
 
-$('body').on("click", ".save-note", function(){
-    var 
+$('body').on("click", "#save-note", function(){
+    var thisId = $(this).attr('data-id');
+        var text = {
+            body: $("#note-body-input").val()
+        }
+    $.post(`/articles/${thisId}`, text).done(function(data){
+        console.log(data);
+        
+    })
+
 })
 
 
