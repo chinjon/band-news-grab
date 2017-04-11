@@ -1,0 +1,32 @@
+<div id="modal-overflow" uk-modal>
+    <div class="uk-modal-dialog">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Notes</h2>
+        </div>
+
+        <div class="uk-modal-body" uk-overflow-auto>
+            <div id="display-notes">
+
+            </div>
+
+            <form>
+                <div class="uk-margin">
+                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Enter Title" id="note-title-input">
+                </div>
+                <div class="uk-margin">
+                    <textarea class="uk-textarea note" rows="5" placeholder="Textarea" id="note-body-input"></textarea>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-primary uk-modal-close" id="save-note" type="button">Save</button>
+        </div>
+
+    </div>
+</div>
