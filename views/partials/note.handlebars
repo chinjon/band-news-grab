@@ -1,7 +1,7 @@
 <div id="modal-overflow" uk-modal>
     <div class="uk-modal-dialog">
 
-        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <button class="uk-modal-close-default" type="button" id="close-note" uk-close></button>
 
         <div class="uk-modal-header">
             <h2 class="uk-modal-title">Notes</h2>
@@ -14,14 +14,14 @@
 
             <form>
                 <div class="uk-margin">
-                    <textarea class="uk-textarea note" rows="5" placeholder="Textarea" id="note-body-input"></textarea>
+                    <textarea class="uk-textarea note" rows="5" placeholder="Enter Note" id="note-body-input"></textarea>
                 </div>
             </form>
 
         </div>
 
         <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-default uk-modal-close close-note-modal" type="button" id="cancel-note">Cancel</button>
             <button class="uk-button uk-button-primary uk-modal-close" data-id="0" id="save-note" type="button">Save</button>
         </div>
 

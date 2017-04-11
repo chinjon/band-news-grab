@@ -1,10 +1,16 @@
 $(document).ready(() => {
 grabArticles();
+///////////////////////////////////////////////////
+////// NOTES  ///////
+///////////////////////////////////////////////////
+$('body').on("click", ".close-note-modal", function(){
+  $("#note-body-input").val("")
+})
 
 
 $('body').on("click", ".open-note", function(){
     var thisId = $(this).attr('data-id');
-    
+
     if(thisId) {
         $("#save-note").attr('data-id', thisId);
         $.get(`/articles/${thisId}`).done(function(data){
@@ -14,6 +20,7 @@ $('body').on("click", ".open-note", function(){
                 console.log(data.note.body)
                 $("#note-body-input").append(data.note.body)
             } else {
+              $("#note-body-input").val("");
                 console.log("no note")
             }
         })
@@ -28,11 +35,13 @@ $('body').on("click", "#save-note", function(){
         }
     $.post(`/articles/${thisId}`, text).done(function(data){
         console.log(data);
-        
+        $("#note-body-input").val("");
     })
-
+    
 })
-
+///////////////////////////////////////////////////
+//////  END NOTES  ///////
+///////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////
 //////  Animation  ///////
